@@ -191,13 +191,13 @@ for k = 1 : length(allFiles)
     min_distance = prefs.minDist * ones(540, 1);
 
     if isfield(stim,'tired')
-        tired = stim.tired * ones(120, 1);
-    else tired = NaN * ones(120, 1);
+        tired = stim.tired * ones(540, 1);
+    else tired = NaN * ones(540, 1);
     end
     if isfield(stim,'attention')
-        attention = stim.attention * ones(120, 1);
+        attention = stim.attention * ones(540, 1);
     else
-        attention = NaN * ones(120, 1);
+        attention = NaN * ones(540, 1);
     end
     
     %% Combine into one dataset and write to a CSV file
@@ -206,7 +206,7 @@ for k = 1 : length(allFiles)
         response, rt, stim_size, stim_duration, fixation_size, ITI, retention_interval,...
         break_duration, min_distance, presentedColor, probeColor, probeLoc, itemColors, itemLocs]; 
     
-    writematrix(partdata, 'raw_trial_data.csv', 'WriteMode', 'append')
+    writematrix(partdata, 'Expt_1_raw_trial_data.csv', 'WriteMode', 'append')
 
     clearvars -except allFiles
 
@@ -214,7 +214,7 @@ end
 
   %% Add column names to the CSV file and resave
 
- full_dataset = readtable('raw_trial_data.csv');
+ full_dataset = readtable('Expt_1_raw_trial_data.csv');
 
  full_dataset.Properties.VariableNames = {'id', 'tired', 'attention', 'trial_num', 'block', 'trial_num_within_block',...
      'set_size', 'change', 'response', 'rt', 'stim_size', 'stim_duration', 'fixation_size',...
