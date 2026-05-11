@@ -189,10 +189,20 @@ for k = 1 : length(allFiles)
     stim_size = prefs.stimSize * ones(540, 1);
     fixation_size = prefs.fixationSize * ones(540, 1);
     min_distance = prefs.minDist * ones(540, 1);
+
+    if isfield(stim,'tired')
+        tired = stim.tired * ones(120, 1);
+    else tired = NaN * ones(120, 1);
+    end
+    if isfield(stim,'attention')
+        attention = stim.attention * ones(120, 1);
+    else
+        attention = NaN * ones(120, 1);
+    end
     
     %% Combine into one dataset and write to a CSV file
     
-    partdata = [ID, trial_num_overall, block, trial_num_within_block, setSize, change,... 
+    partdata = [ID, tired, attention, trial_num_overall, block, trial_num_within_block, setSize, change,... 
         response, rt, stim_size, stim_duration, fixation_size, ITI, retention_interval,...
         break_duration, min_distance, presentedColor, probeColor, probeLoc, itemColors, itemLocs]; 
     
@@ -206,7 +216,7 @@ end
 
  full_dataset = readtable('raw_trial_data.csv');
 
- full_dataset.Properties.VariableNames = {'id', 'trial_num', 'block', 'trial_num_within_block',...
+ full_dataset.Properties.VariableNames = {'id', 'tired', 'attention', 'trial_num', 'block', 'trial_num_within_block',...
      'set_size', 'change', 'response', 'rt', 'stim_size', 'stim_duration', 'fixation_size',...
      'intertrial_interval', 'retention_interval', 'break_duration', 'min_distance', 'first_test_color',...
      'second_test_color', 'test_location_x', 'test_location_y', 'item_color_1', 'item_color_2', 'item_color_3', 'item_color_4',...
