@@ -23,7 +23,7 @@ backup_data <- data
 
 #Get rid of extra columns in the datasets so that all that remains are what both have in common
 
-data <- data[,c(2:6, 8)]
+data <- data[,c(4:8, 10)]
 data_orig <- data_orig[,-c(4)]
 
 #Add ID columns to both sets of data
