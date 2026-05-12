@@ -89,3 +89,42 @@ all.equal(data, data_orig) #If no other errors, then the dataframes are the same
 #It still necessary to check the participants with missing data separately (10, 38, 65, 74, 79).
 #Prior to analyzing the data, the missing session 29 for 38 was added to the dataset from the corresponding csv file. 
 
+#Prior to analyzing the data, the missing trials from participant 38, session 29, were added directly to the final dataset:
+
+#Clear the workspace
+rm(list = ls())
+
+#Format the session csv file
+part3929 <- read.csv('/Path/to/main_directory/Data_experiment_2/name_of_missing_session_csv_file.csv')
+
+for (i in 1:nrow(part3929)) {
+  if (part3929$Accuracy[i] == 1) {
+    part3929$response[i] = part3929$Change[i]
+  } else if (part3929$Change[i] == 0) {
+    part3929$response[i] = 1
+  } else if (part3929$Change[i] == 1) {
+    part3929$response[i] = 0
+  } else {
+    print(paste(i, "error"))
+  }
+}
+
+
+part3929 <- part3929[,-c(6)]
+
+part3929$id <- 39
+
+colnames(part3929) <- c("session", "place", "trial_num", "trial_num_within_block", "block", "set_size", "change", "rt", "response", "id")
+part3929 <- part3929[, c("id", "session", "place", "trial_num", "trial_num_within_block", "block", "set_size", "change", "response", "rt")]
+
+#Insert the extra columns with NA values
+
+part3929$time_of_day <- NA
+part3929$tired <- NA
+part3929$attention <- NA
+
+part3929 <- part3929[, c("id", "session", "place", "time_of_day", "tired", "attention", "trial_num", "block", "trial_num_within_block", "set_size", "change", "response", "rt")]
+
+#Write the session csv file to be directly added
+write.csv(part3929, "part38_session29_formatted.csv")
+
