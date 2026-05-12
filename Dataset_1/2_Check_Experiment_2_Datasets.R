@@ -94,37 +94,38 @@ all.equal(data, data_orig) #If no other errors, then the dataframes are the same
 #Clear the workspace
 rm(list = ls())
 
-#Format the session csv file
-part3929 <- read.csv('/Path/to/main_directory/Data_experiment_2/name_of_missing_session_csv_file.csv')
+#Format the missing session
+part3829 <- read.csv('/Path/to/main_directory/Data_experiment_2/name_of_missing_session_csv_file.csv')
 
-for (i in 1:nrow(part3929)) {
-  if (part3929$Accuracy[i] == 1) {
-    part3929$response[i] = part3929$Change[i]
-  } else if (part3929$Change[i] == 0) {
-    part3929$response[i] = 1
-  } else if (part3929$Change[i] == 1) {
-    part3929$response[i] = 0
+for (i in 1:nrow(part3829)) {
+  if (part3829$Accuracy[i] == 1) {
+    part3829$response[i] = part3829$Change[i]
+  } else if (part3829$Change[i] == 0) {
+    part3829$response[i] = 1
+  } else if (part3829$Change[i] == 1) {
+    part3829$response[i] = 0
   } else {
     print(paste(i, "error"))
   }
 }
 
 
-part3929 <- part3929[,-c(6)]
+part3829 <- part3829[,-c(6)]
 
-part3929$id <- 39
+part3829$id <- 38
 
-colnames(part3929) <- c("session", "place", "trial_num", "trial_num_within_block", "block", "set_size", "change", "rt", "response", "id")
-part3929 <- part3929[, c("id", "session", "place", "trial_num", "trial_num_within_block", "block", "set_size", "change", "response", "rt")]
+colnames(part3829) <- c("session", "place", "trial_num", "trial_num_within_block", "block", "set_size", "change", "rt", "response", "id")
+part3829 <- part3829[, c("id", "session", "place", "trial_num", "trial_num_within_block", "block", "set_size", "change", "response", "rt")]
 
 #Insert the extra columns with NA values
 
-part3929$time_of_day <- NA
-part3929$tired <- NA
-part3929$attention <- NA
+part3829$time_of_day <- NA
+part3829$tired <- NA
+part3829$attention <- NA
 
-part3929 <- part3929[, c("id", "session", "place", "time_of_day", "tired", "attention", "trial_num", "block", "trial_num_within_block", "set_size", "change", "response", "rt")]
+part3829 <- part3829[, c("id", "session", "place", "time_of_day", "tired", "attention", "trial_num", "block", "trial_num_within_block", "set_size", "change", "response", "rt")]
 
+write.csv(part3829, "part38_session29_formatted.csv")
 #Write the session csv file to be directly added
 write.csv(part3929, "part38_session29_formatted.csv")
 
