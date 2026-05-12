@@ -13,7 +13,7 @@ csv_files <- list.files(path = '/Path/to/main_directory/Data_experiment_2/CSV_in
 combined_data <- csv_files %>%
   map_dfr(read_csv)
 
-#Make the ID column
+# 3. Make the ID column
 
 id_col <- data.frame(matrix(NA, nrow = 75, ncol = 1))
 
@@ -34,7 +34,7 @@ id_col <- id_col %>% filter(id != 38)
 combined_data <- cbind(id_col, combined_data)
 
 
-# 3. Write the combined data to a single new CSV file
+# 4. Write the combined data to a single new CSV file
 write_csv(combined_data, '/Path/to/main_directory/Data_experiment_2/CSV_individuals_E2/data_orig.csv')
 
 data_orig <- read.csv('/Path/to/main_directory/Data_experiment_2/CSV_individuals_E2/data_orig.csv')
@@ -87,4 +87,5 @@ data_orig <- data_orig %>%
 all.equal(data, data_orig) #If no other errors, then the dataframes are the same. Move forward from here to explore the data.
 
 #It still necessary to check the participants with missing data separately (10, 38, 65, 74, 79).
+#Prior to analyzing the data, the missing session 29 for 38 was added to the dataset from the corresponding csv file. 
 
