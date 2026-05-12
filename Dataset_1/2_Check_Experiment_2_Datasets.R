@@ -125,7 +125,6 @@ part3829$attention <- NA
 
 part3829 <- part3829[, c("id", "session", "place", "time_of_day", "tired", "attention", "trial_num", "block", "trial_num_within_block", "set_size", "change", "response", "rt")]
 
-write.csv(part3829, "part38_session29_formatted.csv")
 #Write the session csv file to be directly added
 write.csv(part3929, "part38_session29_formatted.csv")
 
