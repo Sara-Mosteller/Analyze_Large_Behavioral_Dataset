@@ -1,5 +1,6 @@
 
-## This script checcks that the dataset made in MATLAB and the original csv datasets in the shared folder are the same
+## This script checks that the dataset made in MATLAB and the original csv datasets in the shared folder are the same
+#First run S0_Install_and_import_packages.R in the A folder. 
 
 #Create a dataframe from the shared participant csv files
 
