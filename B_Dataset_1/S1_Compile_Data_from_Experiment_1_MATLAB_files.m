@@ -1,5 +1,7 @@
 %% Overview
 
+%The data can be found and downloaded here: https://osf.io/g7txf/
+
 %This script loops through the raw data file for each participant, extracts
 % the stimulus properties and response variables from the p, prefs and stim
 %structures, and writes these to a single csv file with one column per variable.
