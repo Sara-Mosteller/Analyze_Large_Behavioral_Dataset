@@ -118,7 +118,7 @@ data$change <- as.factor(data$change)
 
 names(data)[names(data) == "rownum"] <- "trial_num"
 
-data_final <- data[, c("id", "trial_num", "set_size", "stim_duration", "change", "response", "rt", "stim_duration", "test_location_x", "test_location_y")]
+data_final <- data[, c("id", "trial_num", "set_size", "change", "response", "rt", "stim_duration", "test_location_x", "test_location_y")]
 
 
 write.csv(data_final, "Trial_Data.csv")
