@@ -1,6 +1,7 @@
 #This script compiles and formats the trial-level data from Balaban et al. 2019
 #The data and documentation can be found and downloaded at: https://osf.io/mzs9e/
 
+#First run S0_Install_and_import_packages.R in the A folder. 
 
 ###########################################################################################################
 #Read all of the files from the main folder.
