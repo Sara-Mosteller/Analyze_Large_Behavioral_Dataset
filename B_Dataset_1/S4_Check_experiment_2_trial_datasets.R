@@ -1,5 +1,6 @@
 
-## This script checcks that the dataset made in MATLAB and the original csv datasets in the shared folder are the same
+## This script checks that the dataset made in MATLAB and the original csv datasets in the shared folder are the same
+#First run S0_Install_and_import_packages.R in the A folder. 
 
 #There are 120 extra rows in the shared csv files from the participant 38, session 29, place 3 (382903_ColorK.mat) that cannot be loaded in the shared matlab files.
 #Missing data was handled differently, so omit participants 10, 65, 74 and 79 from the csv folder before checking, because these participants were missing sessions/had makeup sessions.
