@@ -228,4 +228,4 @@ end
      'item_location_2_y', 'item_location_3_y', 'item_location_4_y', 'item_location_5_y',...
      'item_location_6_y', 'item_location_7_y', 'item_location_8_y'};
 
- writetable(full_dataset, 'Experiment_1_trial_data.csv');
+ writetable(full_dataset, 'Experiment_1_trial_data.csv'); % This file only reads with 133 unique IDs, so the ID column might need to be renumbered prior to analyzing.
