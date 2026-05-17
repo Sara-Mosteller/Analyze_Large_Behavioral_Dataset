@@ -22,7 +22,7 @@
 
 %Navigate to the main data directory and add the Data_Experiment_2 folder to the path
 
-%% Loop through the participant files in the Data_experiment_1/IndividualFiles folder
+%% Loop through the participant files in the Data_experiment_2/Matlab_individuals_E2 folder
 
 baseDir = 'Data_experiment_2/Matlab_individuals_E2/';
 titlePattern = '*_ColorK.mat'; % ** allows recursive search in subfolders
