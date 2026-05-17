@@ -1,5 +1,5 @@
 ###########################################################################################################
-#This script checks that all of the datasets made by S3 are the same between the R and Python versions
+#This script checks that all of the datasets made by S7 are the same between the R and Python versions
 ###########################################################################################################
 
 #Read the datasets made in R
