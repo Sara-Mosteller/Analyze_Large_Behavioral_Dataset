@@ -68,7 +68,7 @@ dataset1_expt1$session <- 1
 dataset1_expt1$distance_from_monitor <- 60 #ms
 dataset1_expt1$stim_size <- 1.775 #average degrees of visual angle
 dataset1_expt1$fixation_size <- 0.415 #average degrees of visual angle
-dataset1_expt1$stim_duration <- 150 #ms
+dataset1_expt1$stim_duration <- 250 #ms
 dataset1_expt1$intertrial_interval <- 1000 #ms
 dataset1_expt1$retention_interval <- 1000 #ms
 dataset1_expt1$break_duration <- 60000 #ms
