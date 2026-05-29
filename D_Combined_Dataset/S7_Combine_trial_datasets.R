@@ -71,7 +71,7 @@ dataset1_expt1$fixation_size <- 0.415 #average degrees of visual angle
 dataset1_expt1$stim_duration <- 250 #ms
 dataset1_expt1$intertrial_interval <- 1000 #ms
 dataset1_expt1$retention_interval <- 1000 #ms
-dataset1_expt1$break_duration <- 60000 #ms
+dataset1_expt1$break_duration <- 30000 #ms
 
 #create the final location variables
 dataset1_expt1$test_location_x_from_center <- dataset1_expt1$test_location_x - 522 #pixels from the mean
@@ -150,7 +150,9 @@ dim(dataset1_expt2) #Should be 293880 rows and 48 columns
 dataset1_expt2$stim_size <- 1.37 #average degrees of visual angle
 dataset1_expt2$fixation_size <- 0.3 #degrees of visual angle
 dataset1_expt2$stim_duration <- 150 #ms
+dataset1_expt2$intertrial_interval <- 1000 #ms
 dataset1_expt2$retention_interval <- 1000 #ms
+dataset1_expt2$break_duration <- 6000 #ms
 dataset1_expt2$distance_from_monitor <- 60 #ms
 dataset1_expt2$study <- 1 #Xu et al., 2018
 dataset1_expt2$experiment <- 2 #Expt 2
