@@ -9,10 +9,10 @@
 dataset1_expt1 <- read.csv('Path/to/Experiment_1_trial_data.csv')
 
 #Dataset 1, expt 2 (Xu et al., 2018, Expt 2)
-dataset1_expt2 <- read.csv('/Path/to/Experiment_2_trial_data.csv')
+dataset1_expt2 <- read.csv('Path/to/Experiment_2_trial_data.csv')
 
 #Dataset 2 (Balaban et al., 2019)
-dataset2 <- read.csv('/Path/to/Trial_Data.csv')
+dataset2 <- read.csv('Path/to/Trial_Data.csv')
 
 ###########################################################################################################
 #Check the dataset properties
@@ -240,7 +240,8 @@ dataset2$trial_num_within_block <-  dataset2$trial_num
 dataset2$test_location_x_from_center <-  dataset2$test_location_x
 dataset2$test_location_y_from_center <-  dataset2$test_location_y
 
-
+dataset2$trial_num <- dataset2$trial_num + 1 #(because it numbers from 0)
+dataset2$trial_num_within_block <- dataset2$trial_num_within_block + 1 #(because it numbers from 0)
 
 dataset2 = subset(dataset2, select = c('study', 'experiment', 'id', 'session', 'trial_num', 'block', 'trial_num_within_block', 'set_size', 'change', 'response', 'rt', 'fixation_size', 'stim_size', 'stim_duration', 'retention_interval', 'distance_from_monitor', 'test_location_x_from_center', 'test_location_y_from_center'))
 length(unique(dataset2$id)) #should be 3838 ids
