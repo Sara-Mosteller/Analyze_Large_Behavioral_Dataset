@@ -240,8 +240,8 @@ dataset2$trial_num_within_block <-  dataset2$trial_num
 dataset2$test_location_x_from_center <-  dataset2$test_location_x
 dataset2$test_location_y_from_center <-  dataset2$test_location_y
 
-dataset2$trial_num <- dataset2$trial_num + 1 #(because it numbers from 0)
-dataset2$trial_num_within_block <- dataset2$trial_num_within_block + 1 #(because it numbers from 0)
+#dataset2$trial_num <- dataset2$trial_num + 1 #(if trials number from 0 rather than 1)
+#dataset2$trial_num_within_block <- dataset2$trial_num_within_block + 1 #(if trials number from 0 rather than 1)
 
 dataset2 = subset(dataset2, select = c('study', 'experiment', 'id', 'session', 'trial_num', 'block', 'trial_num_within_block', 'set_size', 'change', 'response', 'rt', 'fixation_size', 'stim_size', 'stim_duration', 'retention_interval', 'distance_from_monitor', 'test_location_x_from_center', 'test_location_y_from_center'))
 length(unique(dataset2$id)) #should be 3838 ids
