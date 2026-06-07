@@ -22,23 +22,23 @@ library(reshape2)
 #install.packages(tidyverse)
 library(tidyverse)
 
-
 ###########################################################################################################
 #Read in the dataset and, if needed, get rid of extra columns. Check for missing data.
 ###########################################################################################################
 
-data <- read.csv('/Path/to/Combined_trial_data.csv')
+data <- read.csv('Path/to/Combined_trial_data.csv')
 
 head(data)
 
-#Uncomment if there is an extra column (in this case, at the beginning)
+#Run if there is an extra column (in this case, at the beginning)
 #data <- data[,-1]
 #head(data)
 
+sum(is.na(data$change)) #The change variable doesn't have any missing values
 sum(is.na(data$response)) #The response variable doesn't have any missing values
 sum(is.na(data$rt)) #The reaction time also doesn't have any missing values
 
-#Check for manually added values for missing dat (e.g., reaction time = 999999)
+#Check for manually added values for missing data (e.g., reaction time = 999999)
 
 extreme_values <- data %>% filter(rt > 10000) #There are very high values but they seem to all be legitimate data. 
 
@@ -183,19 +183,26 @@ categorical_variable_counts <- function(df, value_col) {
   #' Correct rejections: change = 0, response = 0
   #' Misses: change = 1, response = 0
   #' @param df A data frame (expecting filtered_data)
-  #' @param value_col It does not matter what column is specified since the function simply counts rows 
+  #' @param value_col It does not matter what column is specified as long as it has no missing values, since the function simply counts rows 
   #' @return A wide dataframe with counts of these outcomes for each level of grouping specified (id, id+set_size)
   
-  
   if (group_by_set_size == TRUE) {
-    df <- df %>% group_by(id, set_size, change, response) %>% count() %>% ungroup()
+    df$id <- as.factor(df$id)
+    df$set_size <- factor(df$set_size, levels = c(4,6,8))
+    df$change <- factor(df$change, levels = c(0,1))
+    df$response <- factor(df$response, levels = c(0,1))
+    df <- df %>% group_by(id, set_size, change, response, .drop=FALSE) %>% count() %>% ungroup()
     df <- dcast(df, id + set_size ~ change + response, value.var = 'n')
     colnames(df) <- c('id', 'set_size', 'correct_rejections', 'false_alarms', 'misses', 'hits')
     df$trial_count <- df$correct_rejections + df$false_alarms + df$misses + df$hits
+    df <- df %>% filter(trial_count != 0) #get rid of extra set size 6 rows in the dataset 2
     print("The dataframe was grouped by id and set size.")
   }
   else {
-    df <- df %>% group_by(id, change, response) %>% count() %>% ungroup()
+    df$id <- as.factor(df$id)
+    df$change <- factor(df$change, levels = c(0,1))
+    df$response <- factor(df$response, levels = c(0,1))
+    df <- df %>% group_by(id, change, response, .drop=FALSE) %>% count() %>% ungroup()
     df <- dcast(df, id ~ change + response, value.var = 'n')
     colnames(df) <- c('id', 'correct_rejections', 'false_alarms', 'misses', 'hits')
     df$trial_count <- df$correct_rejections + df$false_alarms + df$misses + df$hits
@@ -248,15 +255,16 @@ create_analysis_variables <- function(df) {
 
   #Response bias to choose 'different' with a correction for extreme values
   df$response_bias <- (df$hits + df$false_alarms + .5)/(df$hits + df$correct_rejections + df$false_alarms + df$misses + 1)
-  df$response_bias_probability = (qnorm(df$hit_rate) + qnorm(df$false_alarm_rate))/2
+  df$response_bias_probability <- (qnorm(df$hit_rate) + qnorm(df$false_alarm_rate))/2
 
   #Paschler's K, a measure of capacity that should remain stable across set sizes
   #This function has been modified such that values < 1 are diminishing positive fractions. 
   if (group_by_set_size == TRUE) {
+    df$set_size <- as.numeric(levels(df$set_size))[df$set_size]
     df$k_temp <- df$set_size * (df$hit_rate - df$false_alarm_rate) / (1 - df$false_alarm_rate)
     df$k <- ifelse(df$k_temp < 1, 
-                   (1/(1+exp(-df$k_temp))),
-                   (df$k_temp))
+                   1/(1+exp(-df$k_temp)),
+                   df$k_temp)
     df <- df %>% select(-k_temp)
   }
   else {
@@ -273,16 +281,19 @@ analysis_variables <- create_analysis_variables(counts)
 ###########################################################################################################
 #Combine and save the full dataset with variables.
 ###########################################################################################################
+analysis_variables$id <- as.numeric(analysis_variables$id)
+analysis_variables$study <- ifelse((analysis_variables$id < 215), 1, 2)
+analysis_variables$experiment <- ifelse((analysis_variables$id <= 135 | analysis_variables$id >= 215), 1, 2)
 
 if (group_by_set_size == TRUE) {
   final_analysis_variables <- cbind(numeric_output, analysis_variables[,-c(1:2)]) #subtracts the id and set size column from analysis_variables
-  colnames <- c("id", "set_size", "trial_count", "rt_mean", "rt_sd", "rt_min", "rt_q1", "rt_median", "rt_q3", "rt_max", "hits", "false_alarms", 
+  colnames <- c("study", "experiment", "id", "set_size", "trial_count", "rt_mean", "rt_sd", "rt_min", "rt_q1", "rt_median", "rt_q3", "rt_max", "hits", "false_alarms", 
                 "correct_rejections", "misses", "accuracy", "hit_rate", "false_alarm_rate", "correct_rejection_rate", "miss_rate",
                 "dprime", "aprime", "response_bias", "response_bias_probability", "k")
   
 } else {
   final_analysis_variables <- cbind(numeric_output, analysis_variables[,-c(1)]) #subtracts the id column from analysis_variables
-  colnames <- c("id", "trial_count", "rt_mean", "rt_sd", "rt_min", "rt_q1", "rt_median", "rt_q3", "rt_max", "hits", "false_alarms", 
+  colnames <- c("study", "experiment", "id", "trial_count", "rt_mean", "rt_sd", "rt_min", "rt_q1", "rt_median", "rt_q3", "rt_max", "hits", "false_alarms", 
                 "correct_rejections", "misses", "accuracy", "hit_rate", "false_alarm_rate", "correct_rejection_rate", "miss_rate",
                 "dprime", "aprime", "response_bias", "response_bias_probability", "k")
   
@@ -311,4 +322,4 @@ filename = 'analysis_variables_without_outliers_grouped_by_id_and_set_size.csv'
 write.csv(final_analysis_variables, filename)
 
 #Option to write the trimmed trial-level dataset to a csv file:
-write.csv(filtered_data, "filtered_trial_data.csv")
+write_csv(filtered_data, "filtered_trial_data.csv")
