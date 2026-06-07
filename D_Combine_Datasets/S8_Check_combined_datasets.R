@@ -3,12 +3,12 @@
 ###########################################################################################################
 
 #Read the datasets made in R
-dataset1_expt1_R <- read.csv('Path/to/Dataset1_expt1_formatted_data.csv')
-dataset1_expt2_R <- read.csv('Path/to/Dataset1_expt2_formatted_data.csv')
-data_combined_full_R <- read.csv('Path/to/Combined_trial_data.csv')
+dataset1_expt1_R <- read.csv('/Path/to/Dataset1_expt1_formatted_data.csv')
+dataset1_expt2_R <- read.csv('/Path/to/Dataset1_expt2_formatted_data.csv')
+data_combined_full_R <- read.csv('/Path/to/Combined_trial_data.csv')
 
 #Read the datasets made in Python
-dataset1_expt1_Python <- read.csv'/Path/to/Dataset1_expt1_formatted_data.csv')
+dataset1_expt1_Python <- read.csv('/Path/to/Dataset1_expt1_formatted_data.csv')
 dataset1_expt2_Python <- read.csv('/Path/to/Dataset1_expt2_formatted_data.csv')
 data_combined_full_Python <- read.csv('/Path/to/Combined_trial_data.csv')
 
