@@ -1,5 +1,6 @@
+
 #Check that the dataset made in R and the dataset made in Python (using the R file list) are the same
-#First run S0_Install_and_import_packages.R in the A folder. 
+
 ########################################################################################################################
 
 #First check the final, trial-level datasets
