@@ -19,10 +19,10 @@ library(lineup)
 #Read in the dataset and, if needed, get rid of extra columns. Set the data types.
 ###########################################################################################################
 
-trial_data_R <- read.csv('/Users/saramosteller/Library/CloudStorage/OneDrive-Personal/Projects/Residuals/Final_Datasets/Datasets_with_variables/R_versions/RT_outliers_removed/analysis_variables_60_trials_per_id_and_set_size/All_set_sizes/filtered_trial_data.csv')
-variable_data_R <- read.csv('/Users/saramosteller/Library/CloudStorage/OneDrive-Personal/Projects/Residuals/Final_Datasets/Datasets_with_variables/R_versions/RT_outliers_removed/analysis_variables_60_trials_per_id_and_set_size/All_set_sizes/analysis_variables_without_outliers_grouped_by_id_and_set_size.csv')
-trial_data_Python <- read.csv('/Users/saramosteller/Library/CloudStorage/OneDrive-Personal/Projects/Residuals/Final_Datasets/Datasets_with_variables/Python_versions/RT_outliers_removed/analysis_variables_60_trials_per_id_and_set_size/All_set_sizes/filtered_trial_data.csv')
-variable_data_Python <- read.csv('/Users/saramosteller/Library/CloudStorage/OneDrive-Personal/Projects/Residuals/Final_Datasets/Datasets_with_variables/Python_versions/RT_outliers_removed/analysis_variables_60_trials_per_id_and_set_size/All_set_sizes/analysis_variables_grouped_by_id_and_set_size.csv')
+trial_data_R <- read.csv('Path/to/filtered_trial_data.csv')
+variable_data_R <- read.csv('/Path/to/analysis_variables_without_outliers_grouped_by_id_and_set_size.csv')
+trial_data_Python <- read.csv('/Path/to/filtered_trial_data.csv')
+variable_data_Python <- read.csv('/Path/to/analysis_variables_grouped_by_id_and_set_size.csv')
 
 
 #Get rid of extra columns
