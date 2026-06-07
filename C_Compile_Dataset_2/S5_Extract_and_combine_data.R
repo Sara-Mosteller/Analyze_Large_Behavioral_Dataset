@@ -1,7 +1,14 @@
 #This script compiles and formats the trial-level data from Balaban et al. 2019
 #The data and documentation can be found and downloaded at: https://osf.io/mzs9e/
 
-#First run S0_Install_and_import_packages.R in the A folder. 
+###########################################################################################################
+#Import the needed packages.
+###########################################################################################################
+
+#install.packages(dplyr)
+library(dplyr)
+#install.packages(tidyverse)
+library(tidyverse)
 
 ###########################################################################################################
 #Read all of the files from the main folder.
@@ -81,9 +88,9 @@ nrow(data)
 
 #Write the dataset as a file for analysis
 
-write.csv(trimmed_dataset, "trimmed_dataset.csv")
+write_csv(trimmed_dataset, "trimmed_dataset.csv")
 
-write.csv(data, "raw_trial_data.csv")
+write_csv(data, "raw_trial_data.csv")
 
 
 ###########################################################################################################
@@ -122,4 +129,4 @@ names(data)[names(data) == "rownum"] <- "trial_num"
 data_final <- data[, c("id", "trial_num", "set_size", "change", "response", "rt", "stim_duration", "test_location_x", "test_location_y")]
 
 
-write.csv(data_final, "Trial_Data.csv")
+write_csv(data_final, "Trial_Data.csv")
