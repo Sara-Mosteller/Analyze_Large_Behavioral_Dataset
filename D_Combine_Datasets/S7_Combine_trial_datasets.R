@@ -1,16 +1,23 @@
 ###########################################################################################################
-#This script combines the Expts 1 and 2 from dataset 1 with dataset 2, keeping overlapping columns. 
-#Also reformats and saves the experiments in dataset 1 
+#Combine datasets
 ###########################################################################################################
 
+#This script combines the Expts 1 and 2 from dataset 1 with dataset 2, keeping overlapping columns. 
+#Also reformats and saves the experiments in dataset 1 
+
+###########################################################################################################
 #Import the needed packages
+###########################################################################################################
 
 #install.packages(dplyr)
 library(dplyr)
 #install.packages(tidyverse)
 library(tidyverse)
 
+###########################################################################################################
 #Read and store the datasets as dataframes
+###########################################################################################################
+
 
 #Dataset 1, expt 1, (Xu et al., 2018, Expt 1)
 dataset1_expt1 <- read.csv('Path/to/Experiment_1_trial_data.csv')
@@ -63,7 +70,7 @@ colMeans(dataset1_expt2[, c(41:48)], na.rm <- TRUE) #location y mean is 425
 dim(dataset1_expt2) #Should be 293880 rows and 48 columns
 
 ###########################################################################################################
-#Format the datasets
+#Format and write the individual datasets as csv files.
 ###########################################################################################################
 
 #Choose/format rows and columns for dataset1_expt1
@@ -241,7 +248,7 @@ dataset2 = subset(dataset2, select = c('study', 'experiment', 'id', 'session', '
 length(unique(dataset2$id)) #should be 3838 ids
 
 ###########################################################################################################
-#Create and write the combined dataset
+#Create and write the combined dataset as a csv file
 ###########################################################################################################
 
 dataset1_expt1_subset <- subset(dataset1_expt1, select = c('study', 'experiment', 'id', 'session', 'trial_num', 'block', 'trial_num_within_block','set_size', 'change', 'response', 'rt', 'fixation_size', 'stim_size', 'stim_duration','retention_interval', 'distance_from_monitor', 'test_location_x_from_center', 'test_location_y_from_center'))
