@@ -1,25 +1,31 @@
 
 ## This script checks that the dataset made in MATLAB and the original csv datasets in the shared folder are the same
-#First run S0_Install_and_import_packages.R in the A folder. 
+
+#Import packages
+
+#install.packages(dplyr)
+library(dplyr)
+#install.packages(tidyverse)
+library(tidyverse)
 
 #Create a dataframe from the shared participant csv files
 
 # 1. List all CSV files in the directory
-csv_files <- list.files(path = '/Path/to/main_directory/Data_experiment_1/CSV_individuals/', pattern = "*.csv", full.names = TRUE)
+csv_files <- list.files(path = 'Path/to/main_directory/Data_experiment_1/CSV_individuals/', pattern = "*.csv", full.names = TRUE)
 
 # 2. Read all files and bind them into one data frame
 combined_data <- csv_files %>%
   map_dfr(read_csv)
 
 # 3. Write the combined data to a single new CSV file
-write_csv(combined_data, '/Path/to/main_directory/Data_experiment_1/CSV_individuals/data_orig.csv')
+write_csv(combined_data, 'Path/to/main_directory/Data_experiment_1/CSV_individuals/data_orig.csv')
 
-data_orig <- read.csv('/Path/to/main_directory/Data_experiment_1/CSV_individuals/data_orig.csv')
+data_orig <- read.csv('Path/to/main_directory/Data_experiment_1/CSV_individuals/data_orig.csv')
 backup_data_orig <- data_orig
 
 #Read the csv file written from the MATLAB files 
 
-data <- read.csv('/Path/to/main_directory/Experiment_1_trial_data.csv')
+data <- read.csv('Path/to/main_directory/Experiment_1_trial_data.csv')
 backup_data <- data
 
 #Get rid of extra columns in the datasets so that all that remains are what both have in common
