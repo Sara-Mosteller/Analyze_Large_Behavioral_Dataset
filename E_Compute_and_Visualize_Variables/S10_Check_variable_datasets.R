@@ -20,7 +20,7 @@ library(lineup)
 ###########################################################################################################
 
 trial_data_R <- read.csv('Path/to/filtered_trial_data.csv')
-variable_data_R <- read.csv('/Path/to/analysis_variables_without_outliers_grouped_by_id_and_set_size.csv')
+variable_data_R <- read.csv('/Path/to/analysis_variables_grouped_by_id_and_set_size.csv')
 trial_data_Python <- read.csv('/Path/to/filtered_trial_data.csv')
 variable_data_Python <- read.csv('/Path/to/analysis_variables_grouped_by_id_and_set_size.csv')
 
