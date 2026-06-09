@@ -3,7 +3,7 @@
 ###########################################################################################################
 
 #This script checks the dimensions of dataframes made in Python and R are the same.
-#A correlation matrix is output to confirm that the variables computed in R and Python are strongly related.
+#A correlation matrix is output to confirm that the variables computed in R and Python are equivalent.
 
 ###########################################################################################################
 #Import the needed packages
