@@ -247,11 +247,9 @@ create_analysis_variables <- function(df) {
   df$dprime <- qnorm(df$hit_rate) - qnorm(df$false_alarm_rate)
   
   #A' as a non-parametric alternative to d'
-  df$aprime <- .5 + (((df$hit_rate - df$false_alarm_rate) * (1 + df$hit_rate - df$false_alarm_rate)) / (4 * df$hit_rate * (1 -  df$false_alarm_rate)))
-  #Some people compute A' like this, where the equation is chosen based on whether the hits or false alarms are greater.
-  #df$aprime = ifelse(df$hit_rate >= df$false_alarm_rate,
-    #                    (.5 + (((df$hit_rate - df$false_alarm_rate) * (1 + df$hit_rate - df$false_alarm_rate)) / (4 * df$hit_rate * (1 -  df$false_alarm_rate)))),
-    #                    (.5 + (((df$false_alarm_rate - df$hit_rate) * (1 + df$false_alarm_rate - df$hit_rate)) / (4 * df$false_alarm_rate * (1 -  df$hit_rate)))))
+  df$aprime = ifelse(df$hit_rate >= df$false_alarm_rate,
+                        (.5 + (((df$hit_rate - df$false_alarm_rate) * (1 + df$hit_rate - df$false_alarm_rate)) / (4 * df$hit_rate * (1 -  df$false_alarm_rate)))),
+                        (.5 - (((df$false_alarm_rate - df$hit_rate) * (1 + df$false_alarm_rate - df$hit_rate)) / (4 * df$false_alarm_rate * (1 -  df$hit_rate)))))
 
   #Response bias to choose 'different' with a correction for extreme values
   df$response_bias <- (df$hits + df$false_alarms + .5)/(df$hits + df$correct_rejections + df$false_alarms + df$misses + 1)
