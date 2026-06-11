@@ -42,6 +42,9 @@ sum(is.na(data$rt)) #The reaction time also doesn't have any missing values
 
 extreme_values <- data %>% filter(rt > 10000) #There are very high values but they seem to all be legitimate data. 
 
+#Option to omit reaction times > 10000, or 10 seconds. 
+data$rt[data$rt == 10000] <- NA
+
 ###########################################################################################################
 #Set the parameters to be used by the functions.
 ###########################################################################################################
@@ -259,11 +262,10 @@ create_analysis_variables <- function(df) {
   #This function has been modified such that values < 1 are diminishing positive fractions. 
   if (group_by_set_size == TRUE) {
     df$set_size <- as.numeric(levels(df$set_size))[df$set_size]
-    df$k_temp <- df$set_size * (df$hit_rate - df$false_alarm_rate) / (1 - df$false_alarm_rate)
+    df$k <- df$set_size * (df$hit_rate - df$false_alarm_rate) / (1 - df$false_alarm_rate)
     df$k <- ifelse(df$k_temp < 1, 
-                   1/(1+exp(-df$k_temp)),
-                   df$k_temp)
-    df <- df %>% select(-k_temp)
+                   1/(1+exp(-df$k)),
+                   df$k)
   }
   else {
     df$k = ''
@@ -287,13 +289,13 @@ if (group_by_set_size == TRUE) {
   final_analysis_variables <- cbind(numeric_output, analysis_variables[,-c(1:2)]) #subtracts the id and set size column from analysis_variables
   colnames <- c("study", "experiment", "id", "set_size", "trial_count", "rt_mean", "rt_sd", "rt_min", "rt_q1", "rt_median", "rt_q3", "rt_max", "hits", "false_alarms", 
                 "correct_rejections", "misses", "accuracy", "hit_rate", "false_alarm_rate", "correct_rejection_rate", "miss_rate",
-                "dprime", "aprime", "response_bias", "response_bias_probability", "k")
+                "dprime", "aprime", "response_bias", "response_bias_probability", "k", "k_modified")
   
 } else {
   final_analysis_variables <- cbind(numeric_output, analysis_variables[,-c(1)]) #subtracts the id column from analysis_variables
   colnames <- c("study", "experiment", "id", "trial_count", "rt_mean", "rt_sd", "rt_min", "rt_q1", "rt_median", "rt_q3", "rt_max", "hits", "false_alarms", 
                 "correct_rejections", "misses", "accuracy", "hit_rate", "false_alarm_rate", "correct_rejection_rate", "miss_rate",
-                "dprime", "aprime", "response_bias", "response_bias_probability", "k")
+                "dprime", "aprime", "response_bias", "response_bias_probability", "k", "k_modified")
   
 }
 
