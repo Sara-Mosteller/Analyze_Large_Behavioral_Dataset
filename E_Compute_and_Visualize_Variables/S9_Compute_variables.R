@@ -26,7 +26,7 @@ library(tidyverse)
 #Read in the dataset and, if needed, get rid of extra columns. Check for missing data.
 ###########################################################################################################
 
-data <- read.csv('Path/to/Combined_trial_data.csv')
+data <- read.csv('/Path/to/Combined_trial_data.csv')
 
 head(data)
 
@@ -52,7 +52,7 @@ data$rt[data$rt == 10000] <- NA
 group_by_set_size <- TRUE #If TRUE, the dataset will be grouped by set size, else enter FALSE to only group by id
 filter_set_sizes <- FALSE #If TRUE, input which set sizes to omit below
 set_sizes_to_omit <- c(6)
-filter_rows <- FALSE #If TRUE, input the max rows per participant within each set size. Row numbers larger than this will be omitted.
+filter_rows <- TRUE #If TRUE, input the max rows per participant within each set size. Row numbers larger than this will be omitted.
 max_row_number <- 60
 omit_rt_outliers <- FALSE #Include this if you want the variables to be computed after omitting extreme reaction time values. 
 
@@ -258,12 +258,12 @@ create_analysis_variables <- function(df) {
   df$response_bias <- (df$hits + df$false_alarms + .5)/(df$hits + df$correct_rejections + df$false_alarms + df$misses + 1)
   df$response_bias_probability <- (qnorm(df$hit_rate) + qnorm(df$false_alarm_rate))/2
 
-  #Paschler's K, a measure of capacity that should remain stable across set sizes
-  #This function has been modified such that values < 1 are diminishing positive fractions. 
+  #K, a measure of capacity that should remain stable across set sizes
   if (group_by_set_size == TRUE) {
     df$set_size <- as.numeric(levels(df$set_size))[df$set_size]
-    df$k <- df$set_size * (df$hit_rate - df$false_alarm_rate) / (1 - df$false_alarm_rate)
-    df$k <- ifelse(df$k_temp < 1, 
+    df$k <- df$set_size * (df$hit_rate - df$false_alarm_rate)
+    #This function has been modified such that values < 1 are diminishing positive fractions. 
+    df$k_modified <- ifelse(df$k < 1, 
                    1/(1+exp(-df$k)),
                    df$k)
   }
