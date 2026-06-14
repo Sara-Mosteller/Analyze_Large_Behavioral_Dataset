@@ -87,7 +87,7 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 
 | Folder | File | Description |
 |--------|------|-------------|
-| A_Documentation_and_Tools | 'Instructions_for_Use.pdf' | Provides full documentation and notes. |
+| A_Documentation_and_Tools | `Instructions_for_Use.pdf` | Provides full documentation and notes. |
 | 			    | 'Python_requirement.txt' | Script to install the needed packages for Python scripts |
 | 			    | 'Check_functions_needed_for_R_script.R' | Lists all functions and packages used in a given R script. |
 | B_Compile_Dataset_1 | 'S1_Compile_Data_from_Experiment_1_MATLAB_files.m' | Compile a full dataset of features from the raw participant MATLAB files from the first experiment |
