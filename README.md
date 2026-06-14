@@ -87,19 +87,19 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 | Folder | File | Description |
 |--------|------|-------------|
 | A_Preliminary | Instructions_for_Use.pdf | Provides full documentation and notes. |
-| 			    | `python_requirements.txt` | Script to install the needed packages for Python scripts |
+| 			    | `python_requirements.txt` | Script to install the needed packages for Python notebooks |
 | 			    | `Check_functions_needed_for_R_script.R` | Lists all functions and packages used in a given R script. |
-| B_Compile_Dataset_1 | `S1_Compile_Data_from_Experiment_1_MATLAB_files.m` | Compile a full dataset of features from the raw participant MATLAB files from the first experiment |
-| 		      | `S2_Check_experiment_1_trial_datasets.R` | Check for equivalence between the data compiled from the MATLAB files and a compilation from the shared participant csv files. |
-| 		      | `S3_Compile_Data_from_Experiment_2_MATLAB_files.m` | Compile a full dataset of features from the raw participant and session MATLAB files from the second experiment |
-|	              | `S4_Check_experiment_2_trial_datasets.R` | Check for equivalence between the dataset compiled in Python and in R. |
-| C_Compile_Dataset_2 | `S5_Extract_and_combine_data.ipynb` , `S5_Extract_and_combine_data.R` | Compile the raw text files shared online into a single dataset. |
-| 		      | `S6_Check_trial_datasets.R` | Check for equivalence between the dataset compiled in Python and in R.  |
-| D_Combine_Datasets | `S7_Combine_trial_datasets.ipynb` , `S7_Combine_trial_datasets.R` | Combine dataset 1 (both experiments) with dataset 2 into a complete dataset with overlapping features. Format all datasets for analysis. |
-|		     | `S8_Check_combined_datasets.R` | Check for equivalence between the datasets formatted/combined in Python and those in R. |
-| E_Compute_and_Visualize_Variables | `S9_Compute_variables.ipynb` , `S9_Compute_variables.R` | Aggregate the data the ID/set size level and compute variables for analysis. |
-| 		     		    | `S10_Check_variables.R` | Check for equivalence between the variables computed in Python and in R. |
-| 		     		    | `S11_Visualize_variables.ipynb` , `S11_Visualize_variables.R` | Generate plots of the variables. |
+| B_Compile_Dataset_1 | `S1_Compile_Data_from_Experiment_1_MATLAB_files.m` | Compiles a full dataset of features from the raw participant MATLAB files from the first experiment |
+| 		      | `S2_Check_experiment_1_trial_datasets.R` | Checks for equivalence between the data compiled from the MATLAB files in IndividualFiles and a compilation from the shared participant CSV files in CSV_individuals. |
+| 		      | `S3_Compile_Data_from_Experiment_2_MATLAB_files.m` | Compiles a full dataset of features from the raw participant and session MATLAB files from the second experiment |
+|	              | `S4_Check_experiment_2_trial_datasets.R` |Checks for equivalence between the data compiled from the MATLAB files in Matlab_individuals_E2 and a compilation from the shared participant CSV files in CSV_individuals_E2. |
+| C_Compile_Dataset_2 | `S5_Extract_and_combine_data.ipynb` , `S5_Extract_and_combine_data.R` | Compiles the raw text files shared online into a single dataset. |
+| 		      | `S6_Check_trial_datasets.R` | Checks for equivalence between the dataset compiled in Python and in R.  |
+| D_Combine_Datasets | `S7_Combine_trial_datasets.ipynb` , `S7_Combine_trial_datasets.R` | Combines dataset 1 (both experiments) with dataset 2 into a complete dataset with overlapping features. Formats all datasets for analysis. |
+|		     | `S8_Check_combined_datasets.R` | Checks for equivalence between the datasets formatted/combined in Python and those in R. |
+| E_Compute_and_Visualize_Variables | `S9_Compute_variables.ipynb` , `S9_Compute_variables.R` | Aggregates the data at the ID/set size level and computes variables for analysis. |
+| 		     		    | `S10_Check_variables.R` | Checks for equivalence between the variables computed in Python and in R. |
+| 		     		    | `S11_Visualize_variables.ipynb` , `S11_Visualize_variables.R` | Generates plots of the all the variables. |
 
 
 ## Citation
