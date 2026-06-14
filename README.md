@@ -12,8 +12,10 @@ Raw data is not included in this repository.
 
 >Dataset 1 contains two experiments from the following paper, referred to as Experiment 1
 and Experiment 2:
+>
 >	Xu, Z., Adam, K. C. S., Fang, X., & Vogel, E. K. (2018). The reliability and stability of
 		visual working memory capacity. Behavior Research Methods, 50(2), 576-588.
+>
 >The data and corresponding documentation can be accessed here: https://osf.io/g7txf/
 >
 >The scripts expect the following structure:
