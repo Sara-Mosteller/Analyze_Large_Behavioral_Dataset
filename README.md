@@ -90,7 +90,6 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 | A_Documentation_and_Tools | 'Instructions_for_Use.pdf' | Provides full documentation and notes. |
 | 			    | 'Python_requirement.txt' | Script to install the needed packages for Python scripts |
 | 			    | 'Check_functions_needed_for_R_script.R' | Lists all functions and packages used in a given R script. |
-
 | B_Compile_Dataset_1 | 'S1_Compile_Data_from_Experiment_1_MATLAB_files.m' | Compile a full dataset of features from the raw participant MATLAB files from the first experiment |
 | 		      | 'S2_Check_experiment_1_trial_datasets.R' | Check for equivalence between the data compiled from the MATLAB files and a compilation from the shared participant csv files. |
 | 		      | 'S3_Compile_Data_from_Experiment_2_MATLAB_files.m' | Compile a full dataset of features from the raw participant and session MATLAB files from the second experiment |
