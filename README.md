@@ -13,8 +13,8 @@ Raw data is not included in this repository.
 >Dataset 1 contains two experiments from the following paper, referred to as Experiment 1
 and Experiment 2:
 >Xu, Z., Adam, K. C. S., Fang, X., & Vogel, E. K. (2018). The reliability and stability of
-visual working memory capacity. Behavior Research Methods, 50(2), 576-588
->The data and corresponding documentation can be accessed here: **https://osf.io/g7txf/
+visual working memory capacity. Behavior Research Methods, 50(2), 576-588.
+>The data and corresponding documentation can be accessed here: https://osf.io/g7txf/
 >The scripts expect the following structure:
 
 ```
@@ -38,14 +38,10 @@ main_directory/
 
 >Dataset 2 contains one experiment and 3849 datasets of 120-130 trials in a single session
 from the following paper:
-
-**Balaban, H., Fukuda, K., & Luria, R. (2019). What can half a million change detection trials
-tell us about visual working memory? Cognition, 191, 103984
-
-The data and corresponding documentation can be accessed here: **https://osf.io/mzs9e/
-
-
-The scripts expect the following structure:
+>Balaban, H., Fukuda, K., & Luria, R. (2019). What can half a million change detection trials
+tell us about visual working memory? Cognition, 191, 103984.
+>The data and corresponding documentation can be accessed here: **https://osf.io/mzs9e/
+>The scripts expect the following structure:
 
 ```
 main_directory/
@@ -57,10 +53,9 @@ main_directory/
 
 ### MATLAB
 
-The following function must be saved into the working directory: cellflat.m 
-
-Retrieved from:
-https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
+>The following function must be saved into the working directory: cellflat.m
+>Retrieved from:
+>https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
 
 
 ### Python 3.9+
