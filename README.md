@@ -4,7 +4,7 @@
 
 Scripts are available in both R and Python versions, with equivalent scripts having the same name. 
 
-##Data sources
+#Data sources
 
 Raw data is not included in this repository.
 
@@ -24,7 +24,7 @@ The scripts expect the following structure:
 main_directory/
   Analysis_Code_Experiment_1 /    
   Analysis_Code_Experiment_2/	
-  cellflat.m #https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
+  cellflat.m
   Data_Experiment_1/
   	CSV_individuals/ #Shared participant CSV files from Experiment 1
 	IndividualFiles/ #Raw MATLAB participant files from Experiment 1
@@ -56,9 +56,9 @@ main_directory/
   
 ```
 
-## Prerequisites
+# Prerequisites
 
-###MATLAB
+#MATLAB
 
 The following function must be saved into the working directory: cellflat.m 
 
@@ -66,7 +66,7 @@ Retrieved from:
 https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
 
 
-### Python 3.9+
+# Python 3.9+
 
 ```bash
 pip install -r requirements.txt
@@ -74,7 +74,7 @@ pip install -r requirements.txt
 
 Packages:'fnmatch', 'itertools',  'matplotlib', 'numpy', 'os', 'pandas', 'scipy',  'seaborn'
 
-### R
+# R
 
 Required packages: 'corrplot',  'dplyr', 'ggplot2', 'lineup', 'reshape2', 'tidyverse' 
 
@@ -83,7 +83,7 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 ```
 
 
-## Repository structure in running order
+# Repository structure in running order
 
 | Folder | File | Description |
 |--------|------|-------------|
@@ -103,6 +103,6 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 | 		     		    | 'S11_Visualize_variables.ipynb' , 'S11_Visualize_variables.R' | Generate plots of the variables. |
 
 
-## Citation
+# Citation
 
 *TBD — citation information will be added upon publication.*
