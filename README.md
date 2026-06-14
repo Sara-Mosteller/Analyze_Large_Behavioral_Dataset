@@ -65,7 +65,7 @@ Retrieved from:
 https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
 
 
-### Python 3.9+
+### Python 3.13.1+
 
 ```bash
 pip install -r python_requirements.txt
