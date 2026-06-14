@@ -12,9 +12,10 @@ Raw data is not included in this repository.
 
 >Dataset 1 contains two experiments from the following paper, referred to as Experiment 1
 and Experiment 2:
->Xu, Z., Adam, K. C. S., Fang, X., & Vogel, E. K. (2018). The reliability and stability of
-visual working memory capacity. Behavior Research Methods, 50(2), 576-588.
+>	Xu, Z., Adam, K. C. S., Fang, X., & Vogel, E. K. (2018). The reliability and stability of
+		visual working memory capacity. Behavior Research Methods, 50(2), 576-588.
 >The data and corresponding documentation can be accessed here: https://osf.io/g7txf/
+>
 >The scripts expect the following structure:
 
 ```
@@ -69,7 +70,7 @@ Packages:`fnmatch`, `itertools`,  `matplotlib`, `numpy`, `os`, `pandas`, `scipy`
 
 ### R
 
-Required packages: `corrplot`,  `dplyr`, `ggplot2`, `lineup`, `reshape2`, `tidyverse` 
+Packages: `corrplot`,  `dplyr`, `ggplot2`, `lineup`, `reshape2`, `tidyverse` 
 
 ```r
 install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyverse"))
@@ -80,7 +81,7 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 
 | Folder | File | Description |
 |--------|------|-------------|
-| A_Documentation_and_Tools | Instructions_for_Use.pdf | Provides full documentation and notes. |
+| A_Preliminary | Instructions_for_Use.pdf | Provides full documentation and notes. |
 | 			    | `python_requirements.txt` | Script to install the needed packages for Python scripts |
 | 			    | `Check_functions_needed_for_R_script.R` | Lists all functions and packages used in a given R script. |
 | B_Compile_Dataset_1 | `S1_Compile_Data_from_Experiment_1_MATLAB_files.m` | Compile a full dataset of features from the raw participant MATLAB files from the first experiment |
