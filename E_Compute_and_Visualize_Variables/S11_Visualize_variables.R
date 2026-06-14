@@ -1,13 +1,28 @@
 ###########################################################################################################
-#This script summarizes and visualizes the variables/
+#This script summarizes and visualizes the variables
 ###########################################################################################################
 
-#Start with a dataframe with variables (e.g, rt_mean, accuracy, d', A', response bias)
+#Start with a dataframe with variables (e.g, rt_mean, accuracy, d', A', response bias, K)
 #already computed for each participant. 
 
 #Parameters must be set below before running the script.
 #All plots will be saved as pdf files to the working directory
-#To plot pdf files, changes pdf() to png() within the functions
+
+#Summary of grouping variables: 
+
+#Study = 1: Dataset 1
+  #Experiment = 1: Experiment 1
+    #Set size = 4: 4 items in the memory array
+    #Set size = 6: 6 items in the memory array
+    #Set size = 8: 8 items in the memory array
+  #Experiment = 2: Experiment 2
+    #Set size = 4: 4 items in the memory array
+    #Set size = 6: 6 items in the memory array
+    #Set size = 8: 8 items in the memory array
+#Study = 2: Dataset 2
+  #Experiment = 1
+    #Set size = 4: 4 items in the memory array
+    #Set size = 8: 8 items in the memory array
 
 ###########################################################################################################
 #Import the packages.
@@ -26,7 +41,7 @@ library(tidyverse)
 #Read in the dataset and, if needed, get rid of extra columns.
 ###########################################################################################################
 
-data <- read_csv('/Path/to/analysis_variables_grouped_by_id_and_set_size.csv')
+data <- read_csv('Path/to/analysis_variables_grouped_by_id_and_set_size.csv')
 
 head(data)
 
@@ -42,11 +57,11 @@ grouping_variables <- c('study', 'experiment', 'set_size') #Separate plots will 
 variables_to_explore <- c('rt_mean', 'rt_sd', 'rt_min', 'rt_q1', 'rt_median', 'rt_q3', 'rt_max',
                         'accuracy', 'hit_rate', 'false_alarm_rate', 'correct_rejection_rate', 
                         'dprime', 'aprime', 'response_bias', 'response_bias_probability', 'k', 'k_modified')
-omit_outliers <- TRUE #If TRUE, input the threshold below
-outlier_threshold <- 1.5 #specify in distance from the IQR
+omit_outliers <- FALSE #If TRUE, input the threshold below
+outlier_threshold <- 1.5 #specify in distance from the IQR for outliers to be replaced with NA
 
 #Set the working directory, where the summary table and all plots will be saved. 
-#setwd("/path/to/outputs/folder")
+#setwd("/path/to/outputs_folder")
 
 ###########################################################################################################
 #Replace outlying values in the variables_to_explore with NA (if/as specified)
@@ -61,10 +76,10 @@ remove_iqr_outliers <- function(data, value_cols = NULL, group_cols = NULL,
   #' - data : DataFrame
   #'      Input dataframe or grouped dataframe.
   #'  - value_cols : Columns to evaluate. If NULL, all numeric columns are used.
-  #'  - group_cols : Columns to group the data frame. If NULL, outliers will be removed based on the whole column.
+  #'  - group_cols : Columns to group the data frame. If NULL, outliers will be replaced with NA based on the whole column.
 
   #'  Returns:
-  #'  - DataFrame with outlier rows removed within each level of the specified grouping variables.
+  #'  - DataFrame with outlier values within each level of the specified group_cols replaced with NA.
 
   # If omit_outliers = FALSE, return data unchanged
   if (!omit_outliers) {
@@ -185,6 +200,9 @@ summary_table <- function(df, value_cols = NULL, group_cols = NULL) {
 
 #Call the function on the data
 summary <- summary_table(data, value_cols = variables_to_explore, group_cols = grouping_variables)
+
+#Option to write the summary table as a csv file
+write_csv(summary, "summary_table.csv")
 
 ###########################################################################################################
 #Plot boxplots for each column within each level of grouping specified
@@ -514,7 +532,8 @@ scatterplots_with_polynomial_fit <- function(data,
       # Create label string for the group and filename for the plots
       g_label <- paste(names(group_cols), "=", unlist(subset_df[1, group_cols]), collapse = ", ")
       group_cols_str <- paste(group_cols, collapse=", ")
-      filename <- paste0("scatterplots_of_", pairs_list[1], "_and_", pairs_list[2], "_grouping_", g_label, ".pdf")
+      #filename <- paste0("scatterplots_of_", pairs_list[1], "_and_", pairs_list[2], "_grouping_", g_label, ".pdf")
+      filename <- paste0("scatterplots_grouped_as", g_label, ".pdf")
       pdf(filename, width = 6, height = 6)
       
       for (pair in pairs_list) {
