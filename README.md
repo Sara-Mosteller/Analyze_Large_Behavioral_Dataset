@@ -99,7 +99,7 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 |		     | `S8_Check_combined_datasets.R` | Checks for equivalence between the datasets formatted/combined in Python and those in R. |
 | E_Compute_and_Visualize_Variables | `S9_Compute_variables.ipynb` , `S9_Compute_variables.R` | Aggregates the data at the ID/set size level and computes variables for analysis. |
 | 		     		    | `S10_Check_variables.R` | Checks for equivalence between the variables computed in Python and in R. |
-| 		     		    | `S11_Visualize_variables.ipynb` , `S11_Visualize_variables.R` | Generates plots of the all the variables. |
+| 		     		    | `S11_Visualize_variables.ipynb` , `S11_Visualize_variables.R` | Generates plots of all the variables. |
 
 
 ## Citation
