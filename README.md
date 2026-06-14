@@ -71,7 +71,7 @@ https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-a
 pip install -r python_requirements.txt
 ```
 
-Packages:`fnmatch`, `itertools`,  `matplotlib`, `numpy`, `os`, `pandas`, `scipy`,  `seaborn`
+Packages: `itertools`,  `matplotlib`, `numpy`, `os`, `pandas`, `scipy`,  `seaborn`
 
 ### R
 
