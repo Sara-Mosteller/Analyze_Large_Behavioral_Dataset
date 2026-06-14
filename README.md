@@ -4,11 +4,11 @@
 
 Scripts are available in both R and Python versions, with equivalent scripts having the same name. 
 
-# Data sources
+## Data sources
 
 Raw data is not included in this repository.
 
-## Dataset 1 
+### Dataset 1 
 
 >Dataset 1 contains two experiments from the following paper, referred to as Experiment 1
 and Experiment 2:
@@ -37,7 +37,7 @@ main_directory/
 ```
 
 
-## Dataset 2
+### Dataset 2
 
 >Dataset 2 contains one experiment and 3849 datasets of 120-130 trials in a single session
 from the following paper:
@@ -56,9 +56,9 @@ main_directory/
   
 ```
 
-# Prerequisites
+## Prerequisites
 
-## MATLAB
+### MATLAB
 
 The following function must be saved into the working directory: cellflat.m 
 
@@ -66,7 +66,7 @@ Retrieved from:
 https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
 
 
-## Python 3.9+
+### Python 3.9+
 
 ```bash
 pip install -r python_requirements.txt
@@ -74,7 +74,7 @@ pip install -r python_requirements.txt
 
 Packages:`fnmatch`, `itertools`,  `matplotlib`, `numpy`, `os`, `pandas`, `scipy`,  `seaborn`
 
-## R
+### R
 
 Required packages: `corrplot`,  `dplyr`, `ggplot2`, `lineup`, `reshape2`, `tidyverse` 
 
@@ -83,7 +83,7 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 ```
 
 
-# Scripts in running order
+## Scripts in running order
 
 | Folder | File | Description |
 |--------|------|-------------|
@@ -103,6 +103,6 @@ install.packages(c("corrplot",  "dplyr", "ggplot2", "lineup", "reshape2", "tidyv
 | 		     		    | `S11_Visualize_variables.ipynb` , `S11_Visualize_variables.R` | Generate plots of the variables. |
 
 
-# Citation
+## Citation
 
 *TBD — citation information will be added upon publication.*
