@@ -41,9 +41,12 @@ main_directory/
 
 >Dataset 2 contains one experiment and 3849 datasets of 120-130 trials in a single session
 from the following paper:
+>
 >Balaban, H., Fukuda, K., & Luria, R. (2019). What can half a million change detection trials
 tell us about visual working memory? Cognition, 191, 103984.
+>
 >The data and corresponding documentation can be accessed here: https://osf.io/mzs9e/
+>
 >The scripts expect the following structure:
 
 ```
