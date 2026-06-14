@@ -40,7 +40,7 @@ main_directory/
 from the following paper:
 >Balaban, H., Fukuda, K., & Luria, R. (2019). What can half a million change detection trials
 tell us about visual working memory? Cognition, 191, 103984.
->The data and corresponding documentation can be accessed here: **https://osf.io/mzs9e/
+>The data and corresponding documentation can be accessed here: https://osf.io/mzs9e/
 >The scripts expect the following structure:
 
 ```
@@ -53,9 +53,10 @@ main_directory/
 
 ### MATLAB
 
->The following function must be saved into the working directory: cellflat.m
->Retrieved from:
->https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
+The following function must be saved into the working directory: cellflat.m
+
+Retrieved from:
+https://www.mathworks.com/matlabcentral/fileexchange/50502-flatten-nested-cell-arrays
 
 
 ### Python 3.9+
